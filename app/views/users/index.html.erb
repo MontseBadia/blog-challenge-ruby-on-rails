@@ -1,0 +1,12 @@
+<h1>See All Users:</h1>
+
+<% if @users.size != 0 %>
+  <% @users.each do |user| %>
+    <ul>
+      <li>
+        <%= link_to "#{user.name}", user_path(user.id) %>
+        <p><%= user.email %></p>
+      </li>
+    </ul>
+  <% end %>
+<% end %>

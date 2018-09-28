@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_signin, except: [:index]
+  
   def index
     @posts = Post.all
   end
@@ -8,7 +10,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @user = User.find(session[:user_id])
+    @post = @user.posts.new(post_params)
     if @post.save
       redirect_to posts_path
     else

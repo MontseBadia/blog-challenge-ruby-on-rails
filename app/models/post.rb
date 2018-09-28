@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  #belongs_to :user
+  belongs_to :user
 
   validates :title, presence: true
   validates :body, length: { minimum: 25 }
@@ -10,5 +10,4 @@ class Post < ApplicationRecord
   
   validates :category, inclusion: { in: CATEGORIES }
   validates :language, inclusion: { in: LANGUAGES }
-
 end
