@@ -1,0 +1,31 @@
+<%= form_for(@post) do |f| %>
+<%= render 'shared/errors', object: @post %>
+  <fieldset>
+    <ul>
+      <li>
+          <%= f.label :title %>
+          <%= f.text_field :title, autofocus: true %>
+      </li>
+      <li>
+          <%= f.label :language %>
+          <%= f.select :language, Post::LANGUAGES, prompt: 'Pick one' %>
+      </li>
+      <li>
+          <%= f.label :readable_time, 'Time to read (min)' %>
+          <%= f.number_field :readable_time %>
+      </li>
+      <li>
+          <%= f.label :category %>
+          <%= f.select :category, Post::CATEGORIES, prompt: 'Pick one' %>
+      </li>
+      <li>
+          <%= f.label :body %>
+          <%= f.text_area :body, cols: 40, rows: 7 %>
+      </li>
+    </ul>
+    <p>
+      <%= f.submit %>
+      <%= link_to 'Cancel', posts_path %>
+    </p>
+  </fieldset>
+<% end %>

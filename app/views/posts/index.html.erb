@@ -1,0 +1,19 @@
+<h1>See all posts:</h1>
+
+<% if @posts.size != 0 %>
+  <% @posts.each do |post| %>
+  <ol>
+    <li>
+      <h3><%= post.title %></h3>
+      <h4>Category: <%= post.category %></h4>
+      <h4>Language: <%= post.language %></h4>
+      <h4>Time to read: <%= post.readable_time %></h4>
+      <%= post.body %>
+      <p>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Delete', post_path(post), method: :delete %>
+      </p>
+    </li>
+  </ol>
+  <% end %>
+<% end %>
