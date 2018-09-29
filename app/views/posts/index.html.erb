@@ -1,22 +1,14 @@
 <h1>See all posts:</h1>
 
+<%= form_tag posts_path, method: :get do %>
+  <%= select_tag 'language', options_for_select(Post::LANGUAGE_FILTER, selected: params[:language]), prompt: @prompt_lang %>
+  <%= select_tag 'sort', options_for_select(Post::SORT_FILTER, selected: params[:sort]), prompt: @prompt %>
+  <%= submit_tag 'Apply' %>
+<% end %>
+
+
 <% if @posts.size != 0 %>
-  <% @posts.each do |post| %>
-  <ol>
-    <li>
-      <h3><%= post.title %></h3>
-      <h4>User: <%= post.user.name %></h4>
-      <h4>Category: <%= post.category %></h4>
-      <h4>Language: <%= post.language %></h4>
-      <h4>Time to read: <%= post.readable_time %></h4>
-      <%= post.body %>
-      <% if current_user %>
-        <p>
-          <%= link_to 'Edit', edit_post_path(post) %>
-          <%= link_to 'Delete', post_path(post), method: :delete %>
-        </p>
-      <% end %>
-    </li>
-  </ol>
-  <% end %>
+  <ul id="post-list">
+    <%= render partial: 'posts/post', collection: @posts, as: :post %>
+  </ul>
 <% end %>

@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   before_action :require_signin, except: [:index]
   
   def index
+    @prompt = 'Sort by...'
+    @prompt_lang = 'Select language...'
     @posts = Post.all
+
+    @posts = @posts.language(params[:language][0..1].downcase) unless params[:language].blank?
+    @posts = @posts.send(params[:sort]) unless params[:sort].blank?
   end
 
   def new
@@ -24,8 +29,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.update(post_params)
-    redirect_to posts_path
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,6 +45,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :language, :readable_time, :category)
+      params.require(:post).permit(:title, :body, :language, :readable_time, :category, :image)
     end
 end
