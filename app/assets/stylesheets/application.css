@@ -95,3 +95,7 @@ a:hover {
   margin-right: 30px;
   line-height: 40px
 }
+
+.hidden {
+  display: none;
+}

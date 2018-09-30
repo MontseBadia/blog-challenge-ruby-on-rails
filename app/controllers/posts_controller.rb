@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
     @posts = @posts.language(params[:language][0..1].downcase) unless params[:language].blank?
     @posts = @posts.send(params[:sort]) unless params[:sort].blank?
+
+    @posts = @posts.search(params[:search]) unless params[:search].blank?
   end
 
   def new

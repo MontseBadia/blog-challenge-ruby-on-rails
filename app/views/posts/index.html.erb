@@ -1,4 +1,11 @@
-<h1>See all posts:</h1>
+<%= form_tag posts_path, method: :get do %>
+  <%= label_tag 'I am looking for...' %>
+  <%= text_field_tag 'search', nil, placeholder: 'type something' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<hr>
+
+<h1>Current Posts</h1>
 
 <%= form_tag posts_path, method: :get do %>
   <%= select_tag 'language', options_for_select(Post::LANGUAGE_FILTER, selected: params[:language]), prompt: @prompt_lang %>

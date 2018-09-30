@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :likes, dependent: :destroy
+  has_many :likers, through: :likes, source: :user
 
   validates :title, presence: true
   validates :body, length: { minimum: 25 }
@@ -27,4 +29,9 @@ class Post < ApplicationRecord
   scope :size_long, -> { order('length(body) desc') }
   scope :size_short, -> { order('length(body) asc') }
   scope :language, ->(lang) { where(language: lang) }
+  scope :search, ->(term) { where('body || title || category like ?', "%#{term}%") }
+
+  def liked_by_current_user?(user)
+    likes.find_by(user: user).present?
+  end
 end

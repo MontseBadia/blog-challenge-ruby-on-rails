@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    resource :likes
+  end
   resources :users
   resource :session
 
