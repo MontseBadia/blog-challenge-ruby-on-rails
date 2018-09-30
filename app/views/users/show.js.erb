@@ -1,0 +1,9 @@
+<% if @your_posts %>
+  $('#your-post-list').html('<%= j render partial: 'posts/post', collection: @your_posts, as: :post %>')
+  $('#your-pagination').html('<%= j paginate @your_posts, remote: true %>')
+<% end %>
+
+<% if @liked_posts %>
+  $('#liked-post-list').html('<%= j render partial: 'posts/post', collection: @liked_posts, as: :post %>')
+  $('#liked-pagination').html('<%= j paginate @liked_posts, remote: true %>')
+<% end %>

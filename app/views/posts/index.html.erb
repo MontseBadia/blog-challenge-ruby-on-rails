@@ -20,4 +20,6 @@
   </ul>
 <% end %>
 
-<%= paginate @posts, left: 2, right: 10 %>
+<div id="paginates">
+  <%= paginate @posts, remote: true %>
+</div>

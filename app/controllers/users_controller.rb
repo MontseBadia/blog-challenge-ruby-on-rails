@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @your_posts = current_user.posts.page params[:page]
+    @liked_posts = current_user.fav_posts.page params[:page]
+  end
+
   private 
     def user_params
       params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)

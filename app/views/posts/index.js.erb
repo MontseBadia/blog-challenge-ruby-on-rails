@@ -1,0 +1,2 @@
+$('#post-list').html('<%= j render partial: 'posts/post', collection: @posts, as: :post %>')
+$('#paginates').html('<%= j paginate @posts, remote: true %>')

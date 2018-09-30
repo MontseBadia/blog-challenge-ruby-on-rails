@@ -1,0 +1,18 @@
+<h1><%= current_user.name %>'s Profile</h1>
+<p><%= current_user.email %></p>
+
+<h2>Posts written by you:</h2>
+<ul id="your-post-list">
+  <%= render partial: 'posts/post', collection: @your_posts, as: :post %>
+</ul>
+<div id="your-pagination">
+  <%= paginate @your_posts, remote: true %>
+</div>
+
+<h2>Posts that you like:</h2>
+<ul id="liked-post-list">
+  <%= render partial: 'posts/post', collection: @liked_posts, as: :post %>
+</ul>
+<div id="liked-pagination">
+  <%= paginate @liked_posts, remote: true %>
+</div>
