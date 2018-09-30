@@ -1,10 +1,10 @@
 <header id="site-header">
   <ul class="header-content">
-    <li><%= link_to 'See All Posts', posts_path %></li>
+    <li><%= link_to 'Posts', posts_path %></li>
     <% if current_user %>
-      Hi, <%= current_user.name %>
-      <li><%= link_to 'See All Users', users_path %></li>
-      <li><%= link_to 'Create New Post', new_post_path %></li>
+      <li><%= link_to 'Users', users_path %></li>
+      <li><%= link_to 'Create Post', new_post_path %></li>
+      <li><%= link_to "#{current_user.name}'s Profile", user_path(current_user) %></li>
       <li><%= link_to 'Log Out', session_path, method: :delete %></li>
     <% else %>
       <li><%= link_to 'Sign Up', new_user_path %></li>

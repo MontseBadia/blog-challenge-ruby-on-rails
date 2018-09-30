@@ -1,2 +1,2 @@
-$('#likes-<%= @post.id %>').html('<%= pluralize(@post.likes.size, 'Like') %>');
+$('#likes-<%= @post.id %>').html('<%= pluralize(@post.likes.size, 'Like') %>: <%= @post.name_likers %>');
 $('#btn-likes-<%= @post.id %>').html('<%= j(render partial: 'posts/like_dislike', locals: { post: @post }) %>');

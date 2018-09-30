@@ -5,7 +5,7 @@
   <h4>Language: <%= post.language %></h4>
   <h4>Time to read: <%= post.readable_time %></h4>
   <h4>Submitted <%= time_ago_in_words(post.created_at)%> ago</h4>
-  <p><%= highlight post.body, params[:search] %></p>
+  <p><%= highlight(truncate(post.body, length: 200, omission: "...") { link_to 'Read More', post }, params[:search]) %></p>
   <div class="post-image-container">
     <% if post.image.attached? %>
       <%= image_tag(post.image, class: 'fit-image') %>
@@ -21,7 +21,6 @@
     </div>
   <% end %>
   <div id="likes-<%= post.id %>">
-    <%= pluralize(post.likes.size, 'Like') %>
+    <%= pluralize(post.likes.size, 'Like') %>: <%= post.name_likers %>
   </div>
 </li>
-

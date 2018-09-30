@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  paginates_per 2
+
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
@@ -33,5 +35,9 @@ class Post < ApplicationRecord
 
   def liked_by_current_user?(user)
     likes.find_by(user: user).present?
+  end
+
+  def name_likers
+    likers.collect { |h| h.name }.join(', ')
   end
 end

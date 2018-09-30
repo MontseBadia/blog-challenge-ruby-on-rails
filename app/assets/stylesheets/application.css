@@ -36,6 +36,7 @@ body {
 
 body {
   font-family: Circular, Helvetica, Arial, sans-serif;
+  background-color: rgb(113, 169, 204);
 }
 
 h2, h3, h4, p, ul, ol, li {
@@ -56,10 +57,11 @@ h2, h3, h4, p {
  }
 
 .post-card {
-  border: 1px solid silver;
+  /* border: 1px solid silver; */
   padding: 10px;
   margin-bottom: 20px;
-  background-color: rgba(119, 129, 175, 0.13);
+  /* background-color: rgba(119, 129, 175, 0.13); */
+  background-color: rgb(166, 204, 221);
 } 
 
 .fit-image {
@@ -79,7 +81,10 @@ a:hover {
 /* ---- header ---- */
 
 #site-header {
-  background-color: rgb(119, 129, 175);
+  /* background-color: rgb(119, 129, 175);
+  background-color: #476C9B;
+  background-color: #6CA6C1; */
+  background-color: white;
   position: fixed;
   top: 0;
   width: 100%;

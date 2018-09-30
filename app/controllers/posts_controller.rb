@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     @prompt = 'Sort by...'
     @prompt_lang = 'Select language...'
-    @posts = Post.all
+    @posts = Post.all.page params[:page] # kaminari pagination
 
     @posts = @posts.language(params[:language][0..1].downcase) unless params[:language].blank?
     @posts = @posts.send(params[:sort]) unless params[:sort].blank?
