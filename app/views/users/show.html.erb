@@ -1,7 +1,13 @@
-<h1><%= current_user.name.capitalize %>'s Profile</h1>
+<h1><%= t('.title', name: current_user.name.capitalize) %></h1>
 <p><%= current_user.email %></p>
 
-<h2>Posts written by you:</h2>
+<h2><%= t('.title-followers') %></h2>
+<p><%= current_user.name_followers %></p>
+
+<h2><%= t('.title-following') %></h2>
+<p><%= current_user.name_followings %></p>
+
+<h2><%= t('.title-your-posts') %></h2>
 <ul id="your-post-list">
   <%= render partial: 'posts/post', collection: @your_posts, as: :post %>
 </ul>
@@ -9,7 +15,7 @@
   <%= paginate @your_posts, remote: true %>
 </div>
 
-<h2>Posts that you like:</h2>
+<h2><%= t('.title-liked-posts') %></h2>
 <ul id="liked-post-list">
   <%= render partial: 'posts/post', collection: @liked_posts, as: :post %>
 </ul>

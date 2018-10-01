@@ -1,0 +1,12 @@
+<h1><%= t('wall.title') %></h1>
+
+<% if @following_posts.size != 0 %>
+  <ul id="post-list-wall">
+    <%= render partial: 'posts/post', collection: @following_posts, as: :post %>
+  </ul>
+<% end %>
+
+
+<div id="paginates-wall">
+  <%= paginate @following_posts, remote: true %>
+</div>

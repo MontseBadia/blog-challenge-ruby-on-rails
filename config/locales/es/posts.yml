@@ -1,0 +1,32 @@
+es:
+  posts: 
+    new:
+      title: 'Nuevo post'
+    index:
+      title: 'Todas las publicaciones'
+      search-label: 'Estoy buscando...'
+      search-placeholder: 'Escriba algo'
+      search-btn: 'Buscar'
+      select: 'Seleccione idioma...'
+      sort: 'Filtrar por...'
+      apply-btn: 'Aplicar'
+      filter1: 'Más reciente'
+      filter2: 'Más antiguo'
+      filter3: 'Más largo'
+      filter4: 'Más corto'
+      user: 'Usuario'
+      edit: 'Editar'
+      delete: 'Borrar'
+      read-more: 'Leer Más'
+      like: 'Me gusta'
+      dislike: 'No me gusta'
+      created: 'Creado el'
+  activerecord: 
+    attributes:
+      post:
+        title: 'Título'
+        language: 'Idioma'
+        readable_time: 'Tiempo en leer (min)'
+        category: 'Categoría'
+        body: 'Contenido'
+        image: 'Imagen'

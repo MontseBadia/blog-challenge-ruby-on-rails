@@ -8,15 +8,15 @@
       </li>
       <li>
           <%= f.label :language %>
-          <%= f.select :language, Post::LANGUAGES, prompt: 'Pick one' %>
+          <%= f.select :language, Post::LANGUAGES, prompt: t('shared.select') %>
       </li>
       <li>
-          <%= f.label :readable_time, 'Time to read (min)' %>
+          <%= f.label :readable_time %>
           <%= f.number_field :readable_time %>
       </li>
       <li>
           <%= f.label :category %>
-          <%= f.select :category, Post::CATEGORIES, prompt: 'Pick one' %>
+          <%= f.select :category, Post::CATEGORIES, prompt: t('shared.select') %>
       </li>
       <li>
           <%= f.label :body %>
@@ -29,7 +29,7 @@
     </ul>
     <p>
       <%= f.submit %>
-      <%= link_to 'Cancel', posts_path %>
+      <%= link_to t('shared.cancel'), posts_path %>
     </p>
   </fieldset>
 <% end %>

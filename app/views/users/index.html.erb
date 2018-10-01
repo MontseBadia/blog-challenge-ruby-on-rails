@@ -1,4 +1,4 @@
-<h1>See All Users:</h1>
+<h1><%= t('.title') %></h1>
 
 <% if @users.size != 0 %>
   <% @users.each do |user| %>
@@ -12,7 +12,7 @@
           </div>
         <% end %>
         <p id="followers-<%= user.id %>">
-          <%= pluralize(user.followers.size, 'Follower') %>:
+          <%= pluralize(user.followers.size, t('.follower')) %>:
           <%= user.name_followers %>
         </p>
         <hr>

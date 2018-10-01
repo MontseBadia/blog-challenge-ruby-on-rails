@@ -1,0 +1,13 @@
+es:
+  users: 
+    index:
+      title: 'Todos los usuarios'
+      follower: 'Seguidor'
+      follow: 'Seguir'
+      unfollow: 'Dejar de seguir'
+    show:
+      title: "Perfil de %{name}"
+      title-followers: 'Personas que te siguen...'
+      title-following: 'Personas a las que sigues...'
+      title-your-posts: 'Tus publicaciones'
+      title-liked-posts: 'Publicaciones que te gustan'

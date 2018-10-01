@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :require_signin, except: [:index]
-  
+
   def index
-    @prompt = 'Sort by...'
-    @prompt_lang = 'Select language...'
+    # @prompt = 'Sort by...'
+    # @prompt_lang = 'Select language...'
     @posts = Post.all.page params[:page] # kaminari pagination
 
     @posts = @posts.language(params[:language][0..1].downcase) unless params[:language].blank?

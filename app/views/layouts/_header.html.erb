@@ -1,10 +1,17 @@
 <header id="site-header">
   <ul class="header-content">
-    <li><%= link_to 'Posts', posts_path %></li>
+    <%= content_tag :li do %>
+      <%= link_to 'ESPAÑOL' , locale: :es %>
+    <% end unless current_page?(locale: :es) %>
+    <%= content_tag :li do %>
+      <%= link_to 'ENGLISH', locale: :en %>
+    <% end unless current_page?(locale: :en) %>
+    <li><%= link_to t('header.link1'), posts_path %></li>
     <% if current_user %>
-      <li><%= link_to 'Users', users_path %></li>
-      <li><%= link_to 'Create Post', new_post_path %></li>
-      <li><%= link_to "#{current_user.name.capitalize}'s Profile", user_path(current_user) %></li>
+      <li><%= link_to t('header.link2'), user_wall_path(current_user) %></li>
+      <li><%= link_to t('header.link3'), users_path %></li>
+      <li><%= link_to t('header.link4'), new_post_path %></li>
+      <li><%= link_to t('header.link5', name: current_user.name.capitalize), user_path(current_user) %></li>
       <li><%= link_to 'Log Out', session_path, method: :delete %></li>
     <% else %>
       <li><%= link_to 'Sign Up', new_user_path %></li>

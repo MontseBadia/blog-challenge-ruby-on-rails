@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  paginates_per 2
+
   acts_as_followable
   acts_as_follower
 
@@ -18,5 +20,9 @@ class User < ApplicationRecord
 
   def name_followers
     followers.collect { |h| h.name.capitalize }.join(', ')
+  end
+
+  def name_followings
+    all_following.collect { |h| h.name.capitalize }.join(', ')
   end
 end

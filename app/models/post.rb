@@ -8,21 +8,21 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :body, length: { minimum: 25 }
   validates :readable_time, numericality: { greater_than: 0 }
-  
+
   CATEGORIES = %w(events sports economy photography medicine other)
   LANGUAGES = %w(en es de)
-  
+
   validates :category, inclusion: { in: CATEGORIES }
   validates :language, inclusion: { in: LANGUAGES }
 
   has_one_attached :image
 
   SORT_FILTER = [
-    ['Newest', 'time_desc'],
-    ['Oldest', 'time_asc'],
-    ['Longest', 'size_long'],
-    ['Shortest', 'size_short']
-  ].freeze
+    [I18n.t('posts.index.filter1'), 'time_desc'],
+    [I18n.t('posts.index.filter2'), 'time_asc'],
+    [I18n.t('posts.index.filter3'), 'size_long'],
+    [I18n.t('posts.index.filter4'), 'size_short']
+  ]
 
   LANGUAGE_FILTER = %w(English Español Deutsch)
 
@@ -38,6 +38,6 @@ class Post < ApplicationRecord
   end
 
   def name_likers
-    likers.collect { |h| h.name }.join(', ')
+    likers.collect { |h| h.name.capitalize }.join(', ')
   end
 end

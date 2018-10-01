@@ -1,5 +1,5 @@
 <% if current_user.following?(user) %>
-  <button><%= link_to 'Unfollow', unfollow_user_path(user.id), method: :delete, remote: true %></button>
+  <button><%= link_to t('users.index.unfollow'), unfollow_user_path(user.id), method: :delete, remote: true %></button>
 <% else %>
-  <button><%= link_to 'Follow', follow_user_path(user.id), method: :post, remote: true %></button>
+  <button><%= link_to t('users.index.follow'), follow_user_path(user.id), method: :post, remote: true %></button>
 <% end %>

@@ -1,0 +1,14 @@
+en:
+  users: 
+    index:
+      title: 'All Users'
+      follower: 'Follower'
+      follow: 'Follow'
+      unfollow: 'Unfollow'
+    show:
+      title: "%{name}'s Profile"
+      title-followers: 'Who is following you...'
+      title-following: 'You are following...'
+      title-your-posts: 'Your Posts'
+      title-liked-posts: 'Liked Posts'
+      

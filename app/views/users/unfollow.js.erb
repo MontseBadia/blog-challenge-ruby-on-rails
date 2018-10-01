@@ -1,2 +1,2 @@
-$('#followers-<%= @user.id %>').html('<%= pluralize(@user.followers.size, 'Follower') %>: <%= @user.name_followers %>')
+$('#followers-<%= @user.id %>').html('<%= pluralize(@user.followers.size,  t('users.index.follower')) %>: <%= @user.name_followers %>')
 $('#btn-following-<%= @user.id %>').html('<%= j render partial: 'users/follow_unfollow.html.erb', locals: { user: @user } %> ');

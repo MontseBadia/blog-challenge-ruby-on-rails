@@ -1,0 +1,32 @@
+en:
+  posts:
+    new:
+      title: 'New Post'
+    index:
+      title: 'All Posts'
+      search-label: 'I am looking for...'
+      search-placeholder: 'Type something'
+      search-btn: 'Search'
+      select: 'Select language...'
+      sort: 'Sort by...'
+      apply-btn: 'Apply'
+      filter1: 'Newest'
+      filter2: 'Oldest'
+      filter3: 'Longest'
+      filter4: 'Shortest'
+      user: 'User'
+      edit: 'Edit'
+      delete: 'Delete'
+      read-more: 'Read More'
+      like: 'Like'
+      dislike: 'Dislike'
+      created: 'Created on'
+  activerecord: 
+    attributes:
+      post:
+        title: 'Title'
+        language: 'Language'
+        readable_time: 'Time to read (min)'
+        category: 'Category'
+        body: 'Body'
+        image: 'Image'

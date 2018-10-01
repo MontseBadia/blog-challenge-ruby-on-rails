@@ -1,16 +1,16 @@
 <%= form_tag posts_path, method: :get do %>
-  <%= label_tag 'I am looking for...' %>
-  <%= text_field_tag 'search', nil, placeholder: 'type something' %>
-  <%= submit_tag 'Search' %>
+  <%= label_tag t('.search-label') %>
+  <%= text_field_tag 'search', nil, placeholder: t('.search-placeholder') %>
+  <%= submit_tag t('.search-btn') %>
 <% end %>
 <hr>
 
-<h1>Current Posts</h1>
+<h1><%= t('.title') %></h1>
 
 <%= form_tag posts_path, method: :get do %>
-  <%= select_tag 'language', options_for_select(Post::LANGUAGE_FILTER, selected: params[:language]), prompt: @prompt_lang %>
-  <%= select_tag 'sort', options_for_select(Post::SORT_FILTER, selected: params[:sort]), prompt: @prompt %>
-  <%= submit_tag 'Apply' %>
+  <%= select_tag 'language', options_for_select(Post::LANGUAGE_FILTER, selected: params[:language]), prompt: t('.select') %>
+  <%= select_tag 'sort', options_for_select(Post::SORT_FILTER, selected: params[:sort]), prompt: t('.sort') %>
+  <%= submit_tag t('.apply-btn') %>
 <% end %>
 
 

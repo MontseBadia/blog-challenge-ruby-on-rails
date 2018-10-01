@@ -34,6 +34,11 @@ class UsersController < ApplicationController
     current_user.stop_following(@user)
   end
 
+  def wall
+    @following = current_user.all_following
+    @following_posts = Post.all.where(user: @following).order(created_at: :desc).page params[:page]
+  end
+
   private 
     def user_params
       params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)

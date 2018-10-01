@@ -1,0 +1,2 @@
+$('#post-list-wall').html('<%= j render partial: 'posts/post', collection: @following_posts, as: :post %>')
+$('#paginates-wall').html('<%= j paginate @following_posts, remote: true %>')
