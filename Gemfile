@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 # Gem for pagination
 gem 'kaminari'
+# Gem for users to follow users
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower'

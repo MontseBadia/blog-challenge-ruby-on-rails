@@ -24,6 +24,16 @@ class UsersController < ApplicationController
     @liked_posts = current_user.fav_posts.page params[:page]
   end
 
+  def follow
+    @user = User.find(params[:id])
+    current_user.follow(@user)
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.stop_following(@user)
+  end
+
   private 
     def user_params
       params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)

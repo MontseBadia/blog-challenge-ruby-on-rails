@@ -4,8 +4,18 @@
   <% @users.each do |user| %>
     <ul>
       <li>
-        <%= link_to "#{user.name}", user_path(user.id) %>
+        <%= link_to "#{user.name.capitalize}", user_path(user.id) %>
         <p><%= user.email %></p>
+        <% if user != current_user %>
+          <div id="btn-following-<%= user.id %>">
+            <%= render partial: 'users/follow_unfollow.html.erb', locals: { user: user } %>
+          </div>
+        <% end %>
+        <p id="followers-<%= user.id %>">
+          <%= pluralize(user.followers.size, 'Follower') %>:
+          <%= user.name_followers %>
+        </p>
+        <hr>
       </li>
     </ul>
   <% end %>
