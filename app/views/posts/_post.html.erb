@@ -5,7 +5,13 @@
   <h4><%= Post.human_attribute_name(:language) %>: <%= post.language %></h4>
   <h4><%= Post.human_attribute_name(:readable_time) %>: <%= post.readable_time %></h4>
   <h4><%= t('posts.index.created') %>: <%= I18n.l(post.created_at, format: '%B %d, %Y') %></h4>
-  <p><%= highlight(truncate(post.body, length: 200, omission: "...") { link_to t('posts.index.read-more'), post }, params[:search]) %></p>
+
+  <% if @complete %>
+    <p><%= post.body %></p>
+  <% else %>
+    <p><%= highlight(truncate(post.body, length: 200, omission: "...") { link_to t('posts.index.read-more'), post }, params[:search]) %></p>
+  <% end %>
+  
   <div class="post-image-container">
     <% if post.image.attached? %>
       <%= image_tag(post.image, class: 'fit-image') %>

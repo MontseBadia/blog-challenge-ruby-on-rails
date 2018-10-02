@@ -45,6 +45,21 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @complete = true
+    @language_detected = translator.detect @post.body
+  end
+
+  def translate
+    @post = Post.find(params[:post_id])
+    @translated_text = translator.translate @post.body, from: @language_detected, to: params[:locale]
+  end
+
+  def hide_translation
+    @post = Post.find(params[:post_id])
+  end
+
   private
     def post_params
       params.require(:post).permit(:title, :body, :language, :readable_time, :category, :image)

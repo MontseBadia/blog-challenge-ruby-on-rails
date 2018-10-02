@@ -67,3 +67,5 @@ gem 'jquery-rails'
 gem 'kaminari'
 # Gem for users to follow users
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower'
+# Gem for translation
+gem 'yandex-translator'

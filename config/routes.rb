@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     resources :posts do
       resource :likes
+      get 'translate' => 'posts#translate', as: :translate
+      get 'hide_translation' => 'posts#hide_translation', as: :hide_translation
     end
     resources :users do
       get 'wall' => 'users#wall', as: :wall

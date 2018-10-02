@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user
   end
 
+  def translator
+    translator ||= Yandex::Translator.new('trnsl.1.1.20181001T214308Z.9ac4f9286d6d971f.3fad4172dbddbd6ba9cae7949942d15453ca6621')
+  end
+
   private
     def current_user
       current_user ||= User.find(session[:user_id]) if session[:user_id]
