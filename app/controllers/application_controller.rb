@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   end
 
   def translator
-    translator ||= Yandex::Translator.new('trnsl.1.1.20181001T214308Z.9ac4f9286d6d971f.3fad4172dbddbd6ba9cae7949942d15453ca6621')
+    api_credentials = Rails.application.credentials[:development][:translator][:access_key]
+    translator ||= Yandex::Translator.new("#{api_credentials}")
   end
 
   private
