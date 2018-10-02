@@ -1,0 +1,2 @@
+$('#translation-instructions').html('<%= link_to 'Hide translation', post_hide_translation_path(@post.id), remote: true %>');
+$('#translated-text').html('<%= j @translated_text %>');

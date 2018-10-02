@@ -1,0 +1,2 @@
+$('#translation-instructions').html('<%= link_to "Translate to #{params[:locale]}", post_translate_path(@post.id), method: :get, remote: true %>');
+$('#translated-text').html('');

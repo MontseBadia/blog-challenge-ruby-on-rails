@@ -1,0 +1,9 @@
+<ul>
+  <%= render partial: 'posts/post', locals: { post: @post } %>
+</ul>
+
+<% if @language_detected != params[:locale] %>
+  <p id="translation-instructions"><%= link_to "Translate to #{params[:locale]}", post_translate_path(@post.id), method: :get, remote: true %></p>
+<% end %>
+
+<div id="translated-text"></div>
