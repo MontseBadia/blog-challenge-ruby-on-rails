@@ -5,11 +5,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user
   end
 
-  def translator
-    api_credentials = Rails.application.credentials[:development][:translator][:access_key]
-    translator ||= Yandex::Translator.new("#{api_credentials}")
-  end
-
   private
     def current_user
       current_user ||= User.find(session[:user_id]) if session[:user_id]

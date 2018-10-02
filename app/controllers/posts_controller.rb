@@ -48,12 +48,12 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @complete = true
-    @language_detected = translator.detect @post.body
+    @language_detected = MagicTranslation.apply.detect @post.body
   end
 
   def translate
     @post = Post.find(params[:post_id])
-    @translated_text = translator.translate @post.body, from: @language_detected, to: params[:locale]
+    @translated_text = MagicTranslation.apply.translate @post.body, from: @language_detected, to: params[:locale]
   end
 
   def hide_translation
