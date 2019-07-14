@@ -69,3 +69,6 @@ gem 'kaminari'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower'
 # Gem for translation
 gem 'yandex-translator'
+
+# Working with worksheets
+gem 'write_xlsx'
